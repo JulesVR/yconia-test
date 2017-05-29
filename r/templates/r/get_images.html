@@ -1,0 +1,17 @@
+{%  for image in image_objects %}
+
+
+
+    <div class="container-fluid no-padding">
+    <div><a href='#'>
+                <div class="row top10" onclick="openPhotoSwipe()" style="background-color: #ffffff">
+                    <div class="pull-left">
+                        <img src="{{ sub.thumbnail }}"
+                             class="img-circle left10" width="40" height="40">
+                        <span class="left7">{{sub.name}}</span></div>
+                    <div class="pull-right"><p class="right10" style="color: #AEABAF">1h</p></div>
+                     <div class="clearfix"></div>
+                </div></a></div>
+    </div>
+
+{% endfor %}

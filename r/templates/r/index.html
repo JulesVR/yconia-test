@@ -1,0 +1,306 @@
+<!-- Loads the path to static files -->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Yconia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static "r/icon/favicon.ico" %}"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "r/icon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "r/icon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "r/icon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "r/icon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "r/icon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "r/icon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "r/icon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "r/icon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "r/icon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "r/icon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "r/icon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "r/icon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "r/icon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "r/icon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static "r/icon/ms-icon-144x144.png" %}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{% static "r/photoswipe/dist/photoswipe.css" %}">
+    <link rel="stylesheet" href="{% static "r/photoswipe/dist/default-skin/default-skin.css" %}">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static "r/photoswipe/dist/photoswipe.min.js" %}"></script>
+    <script src="{% static "r/photoswipe/dist/photoswipe-ui-default.min.js" %}"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="{% static "r/js/ajax.js" %}"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        a:link {color: #555;}
+        a:visited {color: #555;}
+        a:hover {color: #555;}
+        a:active {color: #555;}
+        .navbar-brand {
+            background: url(http://i.imgur.com/FraVa2T.png) center / contain no-repeat;
+            transform: translateX(-50%);
+            left: 50%;
+            position: absolute;
+            width: 200px; /* no height needed ... image will resize automagically */
+        }
+        .navbar-default {
+            background-color: #FFA633;
+            border-color: #FFA633;
+        }
+        .navbar .navbar-nav > li.open > a:hover,
+        .navbar .navbar-nav > li.open > a:focus {
+            background-color: #FFAF4F;
+            color: #fff;
+        }
+        .navbar{
+            margin-bottom: 0px;
+        }
+        .top5 { margin-top:5px; }
+        .top7 { margin-top:7px; }
+        .top10 { margin-top:10px; }
+        .top15 { margin-top:15px; }
+        .top17 { margin-top:17px; }
+        .top30 { margin-top:30px; }
+        .left5 { margin-left:5px; }
+        .left7 { margin-left:7px; }
+        .left10 { margin-left:10px; }
+        .left15 { margin-left:15px; }
+        .left17 { margin-left:17px; }
+        .left30 { margin-left:30px; }
+        .right5 { margin-right:5px; }
+        .right7 { margin-right:7px; }
+        .right10 { margin-right:10px; }
+        .right15 { margin-right:15px; }
+        .right17 { margin-right:17px; }
+        .right30 { margin-right:30px; }
+        input, textarea{
+            background-color:#787678;
+            color: #FFF;
+        }
+        .search-box-addaption {
+            border: 0;
+            box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+            border-radius: 0;
+            background-color: #F7F7F9;
+        }
+        .no-padding{
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .form-control{
+            height: 40px;
+            font-size: 18px;
+        }
+        .form-control-feedback{
+            line-height: 40px;
+            padding-right: 10px;
+        }
+        .form-group{
+            margin-bottom: 0px;
+        }
+        .glyphicon-search:before{
+            color : #787678;
+        }
+    </style>
+</head>
+<body>
+     <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+
+            <!-- Logo -->
+            <div class="navbar-header"><a class="navbar-brand text-hide" href="#">yconia</a></div>
+            <!-- Menu Items -->
+            <div>
+                <!--right align -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-chevron-down" style="color:white"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-toggle="collapse" data-target="#searchsubs">Search subs</a></li>
+                            <li><a href="#">Categories</a></li>
+                            <li><a href="/r/">All subs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+     <div class="container-fluid no-padding">
+         {% csrf_token %}
+        <div class="form-group has-feedback collapse in" id="searchsubs">
+            <input type="text" class="form-control search-box-addaption" placeholder="Search" id="search" name="search"/>
+            <i class="glyphicon glyphicon-search form-control-feedback"></i>
+        </div></div>
+     <div class="container top17">
+        <span id="search-results" name="search-results">
+            {% if all_subreddits %}
+                {% for subreddit in all_subreddits %}
+                    <div><a href='#'>
+                    <div class="row top10" onclick="setImageObjects('\'{{ subreddit.name }}\'')" style="background-color: #ffffff">
+                        <div class="pull-left">
+                            <img src="{{ subreddit.thumbnail }}"
+                                 class="img-circle left10" width="40" height="40">
+                            <span class="left7">{{subreddit.name}}</span></div>
+                        <div class="pull-right">
+                            <p class="right10" style="color: #AEABAF">{{ subreddit.time_ago_of_last_update }}</p></div>
+                         <div class="clearfix"></div>
+                    </div></a></div>
+                {% endfor %}
+            {% else %}
+            <h3>There are no subreddits saved in the database.</h3>
+            {% endif %}
+        </span>
+     </div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+
+            <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+
+                    <div class="pswp__counter hidden-xs"></div>
+
+                    <button class="pswp__button pswp__button--close hidden-xs" title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button--share hidden-xs" title="Share"></button>
+
+                    <button class="pswp__button pswp__button--fs hidden-xs" title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button--zoom hidden-xs" title="Zoom in/out"></button>
+
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader--active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                          <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        var openPhotoSwipe = function(subreddit_name) {
+
+            var pswpElement = document.querySelectorAll('.pswp')[0];
+
+            // build items array
+            // var items = get_images(subreddit_name)
+            var items = image_objects;
+{#            var items = [#}
+{#                {#}
+{#                    src: 'https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg',#}
+{#                    w: 964,#}
+{#                    h: 1024,#}
+{#                    title: subreddit_name.substr(1,subreddit_name.length-2)#}
+{#                },#}
+{#                {#}
+{#                    src: 'https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg',#}
+{#                    w: 1024,#}
+{#                    h: 683,#}
+{#                    title: 'Appontwikkelaar. Het was nog niet zo lang geleden het beroep van de toekomst, maar nu de ' +#}
+{#                    'appmoeheid stilaan toeslaat, moet de sector zich heruitvinden. ‘Het kaf wordt van het koren gescheiden.’'#}
+{#                }#}
+{#            ];#}
+
+            // define options (if needed)
+            var options = {
+                     // history & focus options are disabled on CodePen
+                history: false,
+                focus: false,
+
+            };
+
+            var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+            gallery.init();
+        };
+        var image_objects = [];
+        var setImageObjects = function (subreddit_name) {
+            $.ajax({
+                type: "GET",
+                url: "/r/get_images/",
+                data : {
+                'subreddit_name' : subreddit_name.substr(1,subreddit_name.length-2),
+                'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+                    },
+                success: function(data) {
+                    console.log(data);
+                    image_objects=[];
+                    for(var i = 0; i < data.length; i++) {
+                        var obj = data[i];
+                        image_objects.push({
+                            src: obj.url,
+                            w: obj.width,
+                            h: obj.height,
+                            title: obj.caption
+                        });
+                    }
+                    openPhotoSwipe(subreddit_name)
+                }
+            });
+        };
+
+
+{% comment %}        var get_images = function (subreddit_name) {
+            $.ajax({
+                type : "GET",
+                url : "/r/get_images/",
+                data : {
+                    'subreddit' : subreddit_name,
+                    'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+                },
+                success: function(){
+                    return data;
+                }
+                });
+        };{% endcomment %}
+        </script>
+</body>
+</html>
